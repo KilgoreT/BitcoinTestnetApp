@@ -86,7 +86,7 @@ fun WalletWidget(
                                         )
                                         context.startActivity(intent)
                                     },
-                            text = "Your transaction ID is ${state.success.transactionId ?: "1d53812bdfcc4db7ef735ce9c4c574af9511a0dbe68397cc2f5023f052e45fe4"}"
+                            text = "Your transaction ID is ${state.success.transactionId ?: ""}"
                     )
                 },
                 onDismissRequest = { sendMsg.invoke(CloseDialog) },

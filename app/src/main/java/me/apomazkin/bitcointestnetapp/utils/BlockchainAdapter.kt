@@ -31,17 +31,12 @@ interface BlockchainAdapter {
     fun getBalance(): String
     fun getAddress(): String
     fun createTransaction(destinationAddress: String, amountToSend: String): String
-    fun getCurrentReceiveAddress(): String
 
     class BlockchainAdapterImpl constructor(
             private val params: NetworkParameters,
     ): BlockchainAdapter {
 
         private var wallet: Wallet? = null
-
-        override fun getAddress(): String {
-            return wallet?.currentReceiveAddress()?.toString() ?: throw IllegalStateException("Wallet is not created")
-        }
 
         override suspend fun isWalletExist(
                 onLoadProgress: (String) -> Unit,
@@ -148,7 +143,7 @@ interface BlockchainAdapter {
             return hex
         }
 
-        override fun getCurrentReceiveAddress(): String {
+        override fun getAddress(): String {
             return wallet?.currentReceiveAddress()?.toString() ?: throw IllegalStateException("Wallet is not created")
         }
     }

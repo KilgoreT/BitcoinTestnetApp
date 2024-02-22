@@ -28,7 +28,7 @@ internal class RestoreWalletEffectHandler(
                                 consumer(ShowLoadProgressMsg(value))
                             }
                     )
-                    ShowWalletMsg(btcLibraryAdapter.getCurrentReceiveAddress())
+                    ShowWalletMsg(btcLibraryAdapter.getAddress())
                 }
             }
             null -> ResetMnemonicMsg

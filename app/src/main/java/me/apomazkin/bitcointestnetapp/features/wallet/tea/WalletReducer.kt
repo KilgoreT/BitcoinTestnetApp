@@ -1,6 +1,5 @@
 package me.apomazkin.bitcointestnetapp.features.wallet.tea
 
-import android.util.Log
 import me.apomazkin.bitcointestnetapp.tea.Effect
 import me.apomazkin.bitcointestnetapp.tea.ReducerResult
 import me.apomazkin.bitcointestnetapp.tea.TeaReducer
@@ -10,7 +9,6 @@ class WalletReducer : TeaReducer<WalletState, WalletMessage, Effect> {
             state: WalletState,
             message: WalletMessage,
     ): ReducerResult<WalletState, Effect> {
-        Log.d("###", "Reduce => message: $message, state: $state")
         return when (message) {
             is TypeAddressMsg -> {
                 ReducerResult(
@@ -75,8 +73,6 @@ class WalletReducer : TeaReducer<WalletState, WalletMessage, Effect> {
                     setOf()
             )
             is DoNothingMsg -> ReducerResult(state, setOf())
-        }.also {
-            Log.d("###", "Reduce => state after: ${it.first} | effects: ${it.second}")
         }
     }
 }
